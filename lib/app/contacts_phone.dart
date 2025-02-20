@@ -8,9 +8,8 @@ class ContactsPhone extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Numéros inconnus',
+      title: 'Liste des contacts téléphoniques',
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true,),
-      // home: const PhoneManagerScreen()
       home: const ContactsScreen()
     );
   }

@@ -49,11 +49,6 @@ class ContactService {
       throw Exception('Impossible d\'accéder au stockage');
     }
 
-    // final timestamp = DateTime.now().millisecondsSinceEpoch;
-
-    // final file = File('${directory.path}/contacts_$timestamp.csv');
-    // await file.writeAsString(csvContent);
-
     String newPath = "";
     List<String> folders = directory!.path.split('/');
     for (int x = 1; x < folders.length; x++) {
@@ -67,12 +62,12 @@ class ContactService {
     newPath = "$newPath/contactsPhone";
     Directory? folder;
     folder = Directory(newPath);
-      if (!await folder.exists()) {
-        await folder.create(recursive: true);
-      }
-      final file = File('$newPath/contacts.csv');
-      debugPrint(newPath);
-      await file.writeAsString(csvContent);
+    if (!await folder.exists()) {
+      await folder.create(recursive: true);
+    }
+    final file = File('$newPath/contacts.csv');
+    debugPrint(newPath);
+    await file.writeAsString(csvContent);
     return file.path;
   }
 }
